@@ -6,7 +6,6 @@ void telemetryKitCallback(char *packet, size_t length) {
 }
 
 void setup() {
-  extern Afsk modem;
   Serial.begin(9600);
   
   TelemetryKitInit();

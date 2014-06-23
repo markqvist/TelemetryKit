@@ -1,14 +1,14 @@
 #include <TelemetryKit.h>
 
 void telemetryKitCallback(char *packet, size_t length) {
-  Serial.print("Received packet: ");
+  packet[length] = 0; // Null terminate string for println
+
+  Serial.print("Received "); Serial.print(length); Serial.println(" bytes: ");
   Serial.println(packet);
 }
 
 void setup() {
-  extern Afsk modem;
   Serial.begin(9600);
-  
   TelemetryKitInit();
 }
 
